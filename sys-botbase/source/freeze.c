@@ -8,7 +8,7 @@
 #include <switch.h>
 #include "freeze.h"
 
-FreezeBlock* freezes;
+FreezeBlock *freezes;
 
 void initFreezes(void)
 {
@@ -27,7 +27,7 @@ int findAddrSlot(u64 addr)
 		if (freezes[i].address == addr)
 			return i;
 	}
-	
+
 	return -1;
 }
 
@@ -36,7 +36,7 @@ int findNextEmptySlot()
 	return findAddrSlot(0);
 }
 
-int addToFreezeMap(u64 addr, u8* v_data, u64 v_size, u64 tid)
+int addToFreezeMap(u64 addr, u8 *v_data, u64 v_size, u64 tid)
 {
 	// update slot if already exists
 	int slot = findAddrSlot(addr);
@@ -44,16 +44,16 @@ int addToFreezeMap(u64 addr, u8* v_data, u64 v_size, u64 tid)
 		slot = findNextEmptySlot();
 	else
 		removeFromFreezeMap(addr);
-	
+
 	if (slot == -1)
 		return 0;
-	
+
 	freezes[slot].address = addr;
 	freezes[slot].vData = v_data;
 	freezes[slot].size = v_size;
 	freezes[slot].state = 1;
 	freezes[slot].titleId = tid;
-	
+
 	return slot;
 }
 

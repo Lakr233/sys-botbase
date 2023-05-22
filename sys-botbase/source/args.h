@@ -1,1 +1,1 @@
-int parseArgs(char* argstr, int (*callback)(int, char**));
+int parseArgs(char *argstr, int (*callback)(int, char **));

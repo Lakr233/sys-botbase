@@ -1,5 +1,12 @@
 {
     "files.associations": {
-        "commands.h": "c"
-    }
+        "commands.h": "c",
+        "poll.h": "c",
+        "inet.h": "c"
+    },
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/**",
+        "${workspaceFolder}/include",
+        "/opt/devkitpro/libnx/include"
+    ]
 }
